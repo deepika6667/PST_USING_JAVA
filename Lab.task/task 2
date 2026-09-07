@@ -1,0 +1,43 @@
+ StreamAnalytics:
+import java.util.*;
+
+public class StreamAnalytics {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int count = 0;
+        double total = 0;
+
+        System.out.print("Enter number of events: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter event value: ");
+            double value = sc.nextDouble();
+
+            count++;
+            total += value;
+
+            System.out.println("Event " + count + " processed");
+
+            if (value >= 10000)
+                System.out.println("ALERT: High-value event!");
+        }
+
+        System.out.println("\n--- Analytics ---");
+        System.out.println("Total Events: " + count);
+        System.out.println("Total Value: " + total);
+        System.out.println("Average Value: " + total / count);
+
+        sc.close();
+    }
+}
+output:
+
+C:\Users\Admin\Downloads>javac StreamAnalytics.java
+
+C:\Users\Admin\Downloads>java StreamAnalytics
+Enter number of events: 6
+Enter event value: 10
+Event 1 processed
+
