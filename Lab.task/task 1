@@ -1,0 +1,69 @@
+SalaryTransformationSystem:
+import java.util.Scanner;
+
+public class SalaryTransformationSystem {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("===== Salary Transformation System =====");
+
+        System.out.print("Enter Employee Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Basic Salary: ");
+        double basicSalary = sc.nextDouble();
+
+        // Salary components
+        double hra = basicSalary * 0.20;   // 20% HRA
+        double da = basicSalary * 0.10;    // 10% DA
+        double ta = basicSalary * 0.05;    // 5% TA
+
+        double grossSalary = basicSalary + hra + da + ta;
+
+        // Deductions
+        double pf = basicSalary * 0.12;    // 12% PF
+        double tax = grossSalary * 0.05;   // 5% Tax
+
+        double totalDeduction = pf + tax;
+        double netSalary = grossSalary - totalDeduction;
+
+        // Display result
+        System.out.println("\n===== Salary Details =====");
+        System.out.println("Employee Name : " + name);
+        System.out.printf("Basic Salary  : %.2f%n", basicSalary);
+        System.out.printf("HRA           : %.2f%n", hra);
+        System.out.printf("DA            : %.2f%n", da);
+        System.out.printf("TA            : %.2f%n", ta);
+        System.out.printf("Gross Salary  : %.2f%n", grossSalary);
+        System.out.printf("PF Deduction  : %.2f%n", pf);
+        System.out.printf("Tax Deduction : %.2f%n", tax);
+        System.out.printf("Total Deduct. : %.2f%n", totalDeduction);
+        System.out.printf("Net Salary    : %.2f%n", netSalary);
+
+        sc.close();
+    }
+}
+output:
+C:\Users\Admin>cd downloads
+
+C:\Users\Admin\Downloads>javac SalaryTransformationSystem.java
+
+C:\Users\Admin\Downloads>java SalaryTransformationSystem
+===== Salary Transformation System =====
+Enter Employee Name: deepu
+Enter Basic Salary: 50000
+
+===== Salary Details =====
+Employee Name : deepu
+Basic Salary  : 50000.00
+HRA           : 10000.00
+DA            : 5000.00
+TA            : 2500.00
+Gross Salary  : 67500.00
+PF Deduction  : 6000.00
+Tax Deduction : 3375.00
+Total Deduct. : 9375.00
+Net Salary    : 58125.00
+
+
