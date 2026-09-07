@@ -1,0 +1,51 @@
+MaximumProfitAnalyzer:
+import java.util.Scanner;
+
+public class MaximumProfitAnalyzer {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of days: ");
+        int n = sc.nextInt();
+
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+
+        System.out.println("Enter stock prices:");
+
+        for (int i = 0; i < n; i++) {
+            int price = sc.nextInt();
+
+            if (price < minPrice)
+                minPrice = price;
+
+            int profit = price - minPrice;
+
+            if (profit > maxProfit)
+                maxProfit = profit;
+        }
+
+        System.out.println("Maximum Profit: " + maxProfit);
+
+        sc.close();
+    }
+}
+OUTPUT:
+C:\Users\Admin\Downloads>javac MaximumProfitAnalyzer.java
+
+C:\Users\Admin\Downloads>java MaximumProfitAnalyzer
+Enter number of days: 10
+Enter stock prices:
+100
+150
+689
+786
+143
+145
+897
+908
+970
+290
+Maximum Profit: 870
+
+
